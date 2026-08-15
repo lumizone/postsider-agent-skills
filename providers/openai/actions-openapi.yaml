@@ -128,7 +128,12 @@ paths:
           description: Matching posts.
           content:
             application/json:
-              schema: { type: array, items: { type: object, additionalProperties: true } }
+              schema:
+                type: object
+                properties:
+                  posts:
+                    type: array
+                    items: { type: object, additionalProperties: true }
   /public/v1/connectors:
     get:
       operationId: listConnectors
@@ -182,6 +187,42 @@ paths:
                 oneOf:
                   - { type: object, additionalProperties: true }
                   - { $ref: '#/components/schemas/ErrorBody' }
+  /public/v1/inbound/subscriptions:
+    get:
+      operationId: listInboundSubscriptions
+      summary: List all active webhook subscriptions for the current workspace
+      responses:
+        '200':
+          description: List of active subscriptions.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { type: object, additionalProperties: true }
+    post:
+      operationId: createInboundSubscription
+      summary: Create a new webhook subscription for one or more inbound sources
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [sources, webhookUrl]
+              properties:
+                sources:
+                  type: array
+                  items: { type: string }
+                  description: One or more SOURCE-capable connector identifiers
+                webhookUrl:
+                  type: string
+                  description: HTTPS URL that will receive webhook events
+      responses:
+        '200':
+          description: Subscription created. Includes secret field (whsec_<40 chars>) shown only once.
+          content:
+            application/json:
+              schema: { type: object, additionalProperties: true }
   /public/v1/inbound/{source}:
     get:
       operationId: pullInboundContent
