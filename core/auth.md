@@ -51,8 +51,13 @@ Authorization: agt_A1b2C3d4E5f6G7h8I9j0K1l2M3n4O5p6Q7r8S9t0
 
 For MCP-native providers (Claude, Cursor, OpenCode, Gemini CLI), set this as
 `POSTSIDER_API_KEY` in the MCP server's environment. The bundled MCP server
-(`apps/mcp` in `lumizone/postsider`, published as `@postsider/mcp`) accepts
-any valid credential in that variable, agent token or org API key alike.
+(`apps/mcp` in `lumizone/postsider`, intended for npm as `@postsider/mcp`)
+accepts any valid credential in that variable, agent token or org API key
+alike. `@postsider/mcp` is not yet published to npm; until it is, clone
+`github.com/lumizone/postsider`, run `pnpm install && pnpm --filter @postsider/mcp build`,
+and point each provider config's `command`/`args` at the built
+`apps/mcp/dist/index.js` instead of `npx -y @postsider/mcp` (see the
+provider adapters under `providers/` for the exact config shape).
 
 ## Base URL
 

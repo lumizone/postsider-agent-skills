@@ -21,8 +21,8 @@ language requests.
 {
   "mcpServers": {
     "postsider": {
-      "command": "npx",
-      "args": ["-y", "@postsider/mcp"],
+      "command": "node",
+      "args": ["/path/to/postsider/apps/mcp/dist/index.js"],
       "env": {
         "POSTSIDER_API_KEY": "agt_...",
         "POSTSIDER_API_URL": "https://api.postsider.com"
@@ -31,6 +31,12 @@ language requests.
   }
 }
 ```
+
+`@postsider/mcp` is not yet published to npm. Clone `github.com/lumizone/postsider`,
+run `pnpm install && pnpm --filter @postsider/mcp build`, then point
+`command`/`args` at the built `apps/mcp/dist/index.js` (adjust `/path/to/postsider`
+to where you cloned it). Once published, this simplifies to
+`"command": "npx", "args": ["-y", "@postsider/mcp"]`.
 
 For a self-hosted instance, set `POSTSIDER_API_URL` to
 `https://<your-domain>/api`.

@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "postsider": {
-      "command": "npx",
-      "args": ["-y", "@postsider/mcp"],
+      "command": "node",
+      "args": ["/path/to/postsider/apps/mcp/dist/index.js"],
       "env": {
         "POSTSIDER_API_KEY": "agt_...",
         "POSTSIDER_API_URL": "https://api.postsider.com"

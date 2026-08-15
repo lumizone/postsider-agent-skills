@@ -12,7 +12,7 @@ the config file location differs per client.
 
 Task playbooks: `../../core/workflows.md` - since GPT Actions calls the REST
 API directly rather than MCP tools, translate each step: `postsider_list_channels`
-becomes `GET /public/v1/connectors`, `postsider_create_post` becomes
+becomes `GET /public/v1/integrations`, `postsider_create_post` becomes
 `POST /public/v1/posts` with the body shape in `actions-openapi.yaml`, etc.
 Add the workflow steps as instructions in the GPT's configuration, not just
 the schema - the schema alone does not teach call order.

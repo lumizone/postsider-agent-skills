@@ -10,6 +10,14 @@
   {
     "type": "function",
     "function": {
+      "name": "postsider_list_channels",
+      "description": "List the connected social channels for this organization. Returns each channel's id, name and platform. Call this before postsider_create_post to get a valid channel id for posts[].integration.id.",
+      "parameters": { "type": "object", "properties": {} }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
       "name": "postsider_create_post",
       "description": "Create, schedule, or immediately publish a post across one or more channels. Forwards directly to POST /public/v1/posts.",
       "parameters": {
@@ -84,6 +92,76 @@
         "properties": {
           "id": { "type": "string" },
           "date": { "type": "string" }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "postsider_find_slot",
+      "description": "Get the next free scheduling slot for a channel, per its posting queue.",
+      "parameters": {
+        "type": "object",
+        "required": ["channelId"],
+        "properties": {
+          "channelId": { "type": "string" }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "postsider_upload_media_from_url",
+      "description": "Download an image or video from a URL into the media library and return the resulting media object.",
+      "parameters": {
+        "type": "object",
+        "required": ["url"],
+        "properties": {
+          "url": { "type": "string" }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "postsider_get_post_missing_fields",
+      "description": "Get per-channel validation problems for a post before it can be published.",
+      "parameters": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": { "type": "string" }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "postsider_request_approval",
+      "description": "Send a draft post into the human approval queue.",
+      "parameters": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": { "type": "string" }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "postsider_get_approval_status",
+      "description": "Check the approval status of a post that was sent for human review.",
+      "parameters": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": { "type": "string" }
         }
       }
     }

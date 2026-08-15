@@ -6,6 +6,17 @@ All 17 tools PostSider's MCP server (`apps/mcp`) exposes, generated from
 If you are not using MCP (see `providers/openai` or `providers/hermes`), the
 same operations are available directly over the `/public/v1` REST API.
 
+## Channel vs connector
+
+A "channel" (MCP terminology, backed by `GET /public/v1/integrations`) is
+one of the organization's actually-connected accounts, and it has an id you
+post to. A "connector" (REST/Agent Bridge terminology, backed by
+`GET /public/v1/connectors`) is a platform catalog entry, such as X or
+LinkedIn, used for browsing what is supported and for the OAuth-authorize
+flow. A connector is identified by a fixed `identifier` string, not an id
+you can post with, and it exists whether or not the organization has
+connected it.
+
 ## Read-only
 
 | Tool | What it does |
