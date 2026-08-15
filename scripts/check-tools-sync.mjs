@@ -9,7 +9,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
-const REGISTER_TOOL_RE = /registerTool\(\s*['"]([a-zA-Z0-9_]+)['"]/g;
+const REGISTER_TOOL_RE = /registerTool\(\s*(['"`])([a-zA-Z0-9_]+)\1/g;
 
 /**
  * @param {string} indexTsSource
@@ -19,7 +19,7 @@ const REGISTER_TOOL_RE = /registerTool\(\s*['"]([a-zA-Z0-9_]+)['"]/g;
 export function diffTools(indexTsSource, manifest) {
   const sourceNames = new Set();
   for (const match of indexTsSource.matchAll(REGISTER_TOOL_RE)) {
-    sourceNames.add(match[1]);
+    sourceNames.add(match[2]);
   }
   const manifestNames = new Set(manifest.map((t) => t.name));
 

@@ -33,3 +33,12 @@ test('reports a manifest entry no longer in source', () => {
   const result = diffTools(source, manifest);
   assert.deepEqual(result, { missing: [], extra: ['postsider_create_post'] });
 });
+
+test('handles backtick-quoted tool names', () => {
+  const source = `
+    server.registerTool(\`postsider_list_channels\`, {}, async () => {});
+    server.registerTool(\`postsider_create_post\`, {}, async () => {});
+  `;
+  const result = diffTools(source, manifest);
+  assert.deepEqual(result, { missing: [], extra: [] });
+});
