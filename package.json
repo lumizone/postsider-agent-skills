@@ -1,0 +1,10 @@
+{
+  "name": "postsider-agent-skills",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test scripts/",
+    "check-tools-sync": "node scripts/check-tools-sync.mjs"
+  }
+}
