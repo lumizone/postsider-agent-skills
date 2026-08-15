@@ -1,11 +1,10 @@
 # Tool reference
 
 All 17 tools PostSider's MCP server (`apps/mcp`) exposes, generated from
-[`tools-manifest.json`](./tools-manifest.json) — the source of truth is
+[`tools-manifest.json`](./tools-manifest.json). The source of truth is
 `apps/mcp/src/index.ts` in [`lumizone/postsider`](https://github.com/lumizone/postsider).
 If you are not using MCP (see `providers/openai` or `providers/hermes`), the
-same operations are available directly over the `/public/v1` REST API; each
-row below notes the REST path it wraps.
+same operations are available directly over the `/public/v1` REST API.
 
 ## Read-only
 
