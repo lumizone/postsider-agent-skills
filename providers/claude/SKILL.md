@@ -37,12 +37,12 @@ For a self-hosted instance, set `POSTSIDER_API_URL` to
 
 ## How to use PostSider tools
 
-Full auth model: `../../core/auth.md`
-Tool reference: `../../core/tools-reference.md`
+Full auth model: https://github.com/lumizone/postsider-agent-skills/blob/main/core/auth.md
+Tool reference: https://github.com/lumizone/postsider-agent-skills/blob/main/core/tools-reference.md
 Task playbooks (schedule, publish now, draft + approval, analytics, agency
-overview, error handling): `../../core/workflows.md`
+overview, error handling): https://github.com/lumizone/postsider-agent-skills/blob/main/core/workflows.md
 
-Follow `workflows.md` step by step for the task the user asked for. Do not
+Follow the workflows guide step by step for the task the user asked for. Do not
 skip the "get channel ids" / "get a free slot" steps even if you think you
 remember them from earlier in the conversation - channels and queues change.
 
