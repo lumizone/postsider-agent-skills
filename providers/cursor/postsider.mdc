@@ -1,0 +1,15 @@
+---
+description: PostSider social media scheduling - when the user asks to schedule, publish, or review posts, or check channel/post analytics
+alwaysApply: false
+---
+
+Use the `postsider` MCP tools for any request about scheduling, publishing,
+or reviewing social media posts, or PostSider analytics.
+
+Task playbooks and error handling: see
+`postsider-agent-skills/core/workflows.md` (this repo, vendored or linked -
+if not present locally, fetch
+https://github.com/lumizone/postsider-agent-skills/blob/main/core/workflows.md).
+
+Do not publish or delete a post without the user confirming the content and
+target channel in this conversation.
