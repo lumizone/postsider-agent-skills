@@ -94,9 +94,9 @@
       "description": "Get per-channel validation problems for a post before it can be published. Forwards to GET /public/v1/posts/{id}/missing.",
       "parameters": {
         "type": "object",
-        "required": ["id"],
+        "required": ["postId"],
         "properties": {
-          "id": { "type": "string" }
+          "postId": { "type": "string" }
         }
       }
     }
@@ -244,9 +244,9 @@
       "description": "Send a draft post into the human approval queue. The post must already exist as a draft. Forwards to POST /public/v1/posts/{id}/request-approval.",
       "parameters": {
         "type": "object",
-        "required": ["id"],
+        "required": ["postId"],
         "properties": {
-          "id": { "type": "string" }
+          "postId": { "type": "string" }
         }
       }
     }
@@ -258,9 +258,9 @@
       "description": "Check the approval status of a post that was sent for human review (approved, rejected with the reviewer's note, or pending). Returns NONE if never submitted. Forwards to GET /public/v1/posts/{id}/approval.",
       "parameters": {
         "type": "object",
-        "required": ["id"],
+        "required": ["postId"],
         "properties": {
-          "id": { "type": "string" }
+          "postId": { "type": "string" }
         }
       }
     }
