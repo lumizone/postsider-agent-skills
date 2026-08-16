@@ -10,6 +10,7 @@
 </p>
 
 <p align="center">
+  <a href="https://postsider.com/agent-skills/">Website</a> &middot;
   <a href="#pick-your-provider">Providers</a> &middot;
   <a href="#quick-start">Quick Start</a> &middot;
   <a href="#core-reference">Core Reference</a> &middot;
