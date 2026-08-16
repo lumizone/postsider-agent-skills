@@ -18,7 +18,7 @@ check analytics, manage channels. Works with its MCP server and public API.
 Every provider adapter is a thin "how to connect" layer over the shared
 [`core/`](./core/) content:
 
-- [`core/auth.md`](./core/auth.md), agent tokens, capabilities, HITL mode
+- [`core/auth.md`](./core/auth.md), how to create and use your org API key
 - [`core/tools-reference.md`](./core/tools-reference.md), all 17 tools
 - [`core/workflows.md`](./core/workflows.md), step-by-step task playbooks
 

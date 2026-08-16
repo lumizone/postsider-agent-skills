@@ -4,7 +4,7 @@
       "type": "local",
       "command": ["node", "/path/to/postsider/apps/mcp/dist/index.js"],
       "environment": {
-        "POSTSIDER_API_KEY": "agt_...",
+        "POSTSIDER_API_KEY": "ps_...",
         "POSTSIDER_API_URL": "https://api.postsider.com"
       }
     }

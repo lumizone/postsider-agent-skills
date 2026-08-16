@@ -2,7 +2,7 @@
 
 **Install:**
 1. Copy `mcp.json`'s `postsider` entry into your `.cursor/mcp.json` (project)
-   or global MCP settings, filling in your agent token.
+   or global MCP settings, filling in your org API key.
 2. Copy `postsider.mdc` into `.cursor/rules/postsider.mdc` in your project.
 
 `@postsider/mcp` is not yet published to npm, so `mcp.json` points `command`/`args`

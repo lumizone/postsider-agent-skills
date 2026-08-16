@@ -11,9 +11,8 @@ language requests.
 
 ## Setup (one time)
 
-1. In PostSider: **Settings > Developers > Agent Tokens > New Token**. Grant
-   `PUBLISH` (and `ANALYTICS` if the user wants analytics questions
-   answered). See the auth guide below for what each capability unlocks.
+1. In PostSider: **Settings > API > New key**. Copy the raw value (starts
+   with `ps_`, shown only once). See the auth guide below.
 2. Add the MCP server to your Claude config (Claude Desktop
    `claude_desktop_config.json`, or Claude Code `.mcp.json`):
 
@@ -24,7 +23,7 @@ language requests.
       "command": "node",
       "args": ["/path/to/postsider/apps/mcp/dist/index.js"],
       "env": {
-        "POSTSIDER_API_KEY": "agt_...",
+        "POSTSIDER_API_KEY": "ps_...",
         "POSTSIDER_API_URL": "https://api.postsider.com"
       }
     }
@@ -59,6 +58,6 @@ remember them from earlier in the conversation - channels and queues change.
   conversation.
 - Do not delete a post (`postsider_delete_post`) without explicit
   confirmation of which post.
-- If the organization has HITL mode on, posts you create will land as
-  drafts regardless of the `type` you pass - tell the user that, don't
-  claim it was published.
+- When the user wants a human to review before publishing, create the post
+  as a `draft` and call `postsider_request_approval` - do not claim it was
+  published.

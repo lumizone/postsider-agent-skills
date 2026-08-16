@@ -9,7 +9,7 @@ most harnesses. Use plain OpenAI-style function calling instead:
 2. Add the contents of `system-prompt.md` to your system prompt.
 3. In your harness's tool-execution loop, forward each function call to the
    matching `/public/v1` REST endpoint (see `../openai/actions-openapi.yaml`
-   for exact request/response shapes) using your agent token. When forwarding
+   for exact request/response shapes) using your org API key. When forwarding
    `postsider_create_post`, if the caller wants idempotent retries, pass a
    stable value as the `Idempotency-Key` HTTP header, not as a body field.
 

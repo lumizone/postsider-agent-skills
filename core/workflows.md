@@ -47,23 +47,14 @@ Same as above with `type: "now"` at step 4 and no `postsider_find_slot` call.
 2. Only drill into `postsider_get_notifications` or `postsider_get_post` for
    items the overview flagged as errored.
 
-## Pull content from an inbound source (Reddit, Discord, Gmail, ...)
-
-MCP does not expose this yet - inbound sources are REST-only. See
-`core/auth.md` for the token capability required (`SOURCE`) and call
-`GET /public/v1/connectors` then `GET /public/v1/inbound/:source` directly
-(full shapes: [Agent Bridge docs](https://docs.postsider.com/self-hosted/public-api/agent-bridge)).
-
 ## Error handling
 
 - MCP tool calls return `isError: true` with a plain-text message on
   failure - surface that message to the user rather than retrying blindly.
-- REST calls under `/public/v1` return HTTP 200 with a structured
-  `{ "error": { "code", "message" } }` body for scope/rate-limit problems
-  (`capability_not_allowed`, `connector_not_authorized`, `rate_limited`,
-  `analytics_not_supported`) - check the body even on a 200. Genuine auth
-  failures (bad/revoked token) are a real HTTP 401.
-- On `rate_limited`, back off for `error.retryAfter` seconds before retrying,
-  do not immediately retry.
+- The underlying REST API returns normal HTTP status codes: `401` for a
+  missing/invalid/revoked key, `402` if the plan does not include the public
+  API, `400`/`422` for validation problems, `4xx` for most other request
+  errors, and `5xx` for server-side failures. Check the HTTP status, not just
+  that a response arrived.
 - Never invent a channel id, post id, or media object - always obtain them
   from a prior tool call in the same task.

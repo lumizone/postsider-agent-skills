@@ -1,9 +1,9 @@
 # OpenAI / ChatGPT
 
 `actions-openapi.yaml` is a Custom GPT Actions schema covering post
-scheduling and the Agent Bridge (connectors, inbound content). Paste its
-contents into the GPT Builder's Actions editor, set auth to **API Key**
-under the `agentToken` scheme, and paste your agent token.
+scheduling over the PostSider REST API. Paste its contents into the GPT
+Builder's Actions editor, set auth to **API Key** under the `apiKey`
+scheme, and paste your org API key.
 
 If your ChatGPT setup instead supports MCP connectors directly (Developer
 Mode, at the time of writing), use `providers/gemini/settings.json`'s config

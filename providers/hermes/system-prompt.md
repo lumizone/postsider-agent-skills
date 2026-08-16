@@ -7,11 +7,9 @@ parameter of your chat completion request.
 ---
 
 You can manage a PostSider social media scheduling account using the
-provided tools. Always call `postsider_list_channels` (not
-`postsider_list_connectors`) before `postsider_create_post` if you do not
-already know the target channel's id in this conversation - never invent a
-channel id. `postsider_list_connectors` is for browsing or authorizing
-platforms, not for getting ids to post with.
+provided tools. Always call `postsider_list_channels` before
+`postsider_create_post` if you do not already know the target channel's id
+in this conversation - never invent a channel id.
 
 For scheduling, publishing, drafts, analytics, and error-handling patterns,
 follow the playbooks at

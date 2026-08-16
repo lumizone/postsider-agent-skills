@@ -2,7 +2,7 @@
 
 **Install:** merge the `mcpServers.postsider` entry from `settings.json`
 into `~/.gemini/settings.json` (or your project's `.gemini/settings.json`),
-filling in your agent token.
+filling in your org API key.
 
 `@postsider/mcp` is not yet published to npm, so `settings.json` points
 `command`/`args` at a locally built `apps/mcp/dist/index.js`. Clone
