@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
  * Diffs the PostSider MCP tool manifest (core/tools-manifest.json) against
- * the real tool registrations in apps/mcp/src/index.ts (from
+ * the real tool registrations in apps/mcp/src/server.ts (from
  * lumizone/postsider), so this repo's docs cannot silently go stale.
  *
- * Usage: node scripts/check-tools-sync.mjs <path-to-index.ts>
+ * Usage: node scripts/check-tools-sync.mjs <path-to-server.ts>
  */
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';

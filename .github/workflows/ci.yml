@@ -1,0 +1,38 @@
+name: verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 6 * * 1' # weekly, catches upstream drift even with no PR here
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out agent skills
+        uses: actions/checkout@v4
+
+      - name: Check out canonical PostSider source
+        uses: actions/checkout@v4
+        with:
+          repository: lumizone/postsider
+          path: postsider-source
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Test sync tooling
+        run: npm test
+
+      - name: Verify MCP tools manifest
+        run: node scripts/check-tools-sync.mjs postsider-source/apps/mcp/src/server.ts
+
+      - name: Verify OpenAI MCP skills mirror
+        run: node scripts/sync-openai-skills.mjs postsider-source/apps/mcp/skills --check
