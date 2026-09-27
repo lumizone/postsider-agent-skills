@@ -1,8 +1,8 @@
 # Tool reference
 
-All 17 tools PostSider's MCP server (`apps/mcp`) exposes, generated from
+All 19 tools PostSider's MCP server (`apps/mcp`) exposes, generated from
 [`tools-manifest.json`](./tools-manifest.json). The source of truth is
-`apps/mcp/src/index.ts` in [`lumizone/postsider`](https://github.com/lumizone/postsider).
+`apps/mcp/src/server.ts` in [`lumizone/postsider`](https://github.com/lumizone/postsider).
 If you are not using MCP (see `providers/openai` or `providers/hermes`), the
 same operations are available directly over the `/public/v1` REST API.
 
@@ -27,6 +27,7 @@ to; get those ids from `postsider_list_channels` before creating a post.
 | `postsider_get_post_analytics` | Performance analytics for one post. |
 | `postsider_get_channel_analytics` | Account-level analytics for a channel. |
 | `postsider_get_notifications` | Recent org notifications (failures, reconnect needed). |
+| `postsider_get_publishing_state` | Check whether organization-wide publishing is active or paused. |
 | `postsider_get_approval_status` | Approval status of a draft sent for review. |
 
 ## Write
@@ -38,6 +39,7 @@ to; get those ids from `postsider_list_channels` before creating a post.
 | `postsider_update_post_status` | Move a post between statuses (e.g. draft to queue). |
 | `postsider_delete_post` | Permanently delete a post. |
 | `postsider_request_approval` | Send a draft into the human approval queue. |
+| `postsider_pause_publishing` | Emergency kill switch: halt organization-wide publishing; an owner must resume it in the dashboard. |
 
 Full input schemas: read `tools-manifest.json`, or ask your MCP client to list
 tools (every client does this automatically on connect).

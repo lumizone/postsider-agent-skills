@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test scripts/*.test.mjs",
-    "check-tools-sync": "node scripts/check-tools-sync.mjs"
+    "check-tools-sync": "node scripts/check-tools-sync.mjs",
+    "sync-openai-skills": "node scripts/sync-openai-skills.mjs"
   }
 }

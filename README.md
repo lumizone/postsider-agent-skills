@@ -26,7 +26,7 @@
 | [Cursor](./providers/cursor/) | MCP config + a `.mdc` project rule |
 | [OpenCode](./providers/opencode/) | MCP config + `AGENTS.md` |
 | [Gemini CLI](./providers/gemini/) | MCP config |
-| [OpenAI / ChatGPT](./providers/openai/) | GPT Actions OpenAPI schema |
+| [OpenAI / ChatGPT](./providers/openai/) | Five production MCP skills plus the legacy GPT Actions schema |
 | [Hermes / self-hosted models](./providers/hermes/) | OpenAI-compatible function-calling tool schema |
 
 Each adapter is a thin "how to connect" layer over the shared playbook in
@@ -49,17 +49,26 @@ or the public REST API.
 Shared content that every provider adapter links to, maintained in one place:
 
 - [`core/auth.md`](./core/auth.md), how to create and use your org API key
-- [`core/tools-reference.md`](./core/tools-reference.md), all 17 MCP tools
+- [`core/tools-reference.md`](./core/tools-reference.md), all 19 MCP tools
 - [`core/workflows.md`](./core/workflows.md), step-by-step task playbooks
   (schedule a post, publish now, draft plus approval, check analytics, agency
   overview, error handling)
 
 ## Staying in sync
 
-`core/tools-manifest.json` is checked in CI against the real MCP server source
-in [`lumizone/postsider`](https://github.com/lumizone/postsider), so this repo
-cannot silently drift from what PostSider actually exposes. See
-`scripts/check-tools-sync.mjs`.
+The production source of truth is [`apps/mcp`](https://github.com/lumizone/postsider/tree/main/apps/mcp)
+in `lumizone/postsider`. This repository is the public, multi-provider distribution layer.
+
+CI prevents both parts from drifting:
+
+- `core/tools-manifest.json` must match all 19 registered MCP tools; see `scripts/check-tools-sync.mjs`.
+- `providers/openai/skills/` must be a byte-for-byte mirror of the five skills shipped by the production MCP; see `scripts/sync-openai-skills.mjs`.
+
+After changing a production skill, refresh this mirror with:
+
+```bash
+npm run sync-openai-skills -- ../postsider_app/apps/mcp/skills
+```
 
 ## License
 
