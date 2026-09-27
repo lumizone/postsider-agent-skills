@@ -1,9 +1,11 @@
-name: CI
+name: verify
 
 on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: '0 6 * * 1' # weekly, catches upstream drift even with no PR here
 
 permissions:
   contents: read
@@ -20,6 +22,11 @@ jobs:
         with:
           repository: lumizone/postsider
           path: postsider-source
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
       - name: Test sync tooling
         run: npm test
